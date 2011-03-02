@@ -23,3 +23,19 @@ Array.prototype.filter = function(f) {
   }
   return result;
 };
+
+Array.prototype.fold = function(f, zero) {
+    var result = zero;
+    for(var i = 0; i < this.length; i+=1) {
+        result = f(result, this[i]);
+    }
+    return result;
+};
+
+Array.prototype.map = function(f) {
+    return fold([], function(acc, current) {
+        acc.push(f(current));
+    })
+};
+
+
