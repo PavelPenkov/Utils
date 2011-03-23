@@ -1,7 +1,8 @@
 String.prototype.format = function() {
     var formatted = this;
     for(var i = 0; i < arguments.length; i+=1) {
-        formatted = formatted.replace("{" + i + "}", arguments[i]);
+      var r = new RegExp("\\{" + i + "\\}", "g");
+      formatted = formatted.replace(r, arguments[i]);
     }
     return formatted;
 };
