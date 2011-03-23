@@ -35,18 +35,16 @@ Array.prototype.fold = function(zero, f) {
 Array.prototype.map = function(f) {
   var result = [];
   for(var i = 0; i < this.length; i+= 1) {
-    result.push(f(this[i]));
+    result.push(f.apply(this[i]));
   }
   return result;
 };
 
-// Returns undefined if element is not found, not the usual -1
 Array.prototype.indexOf = function(f) {
   for(var i = 0; i < this.length; i+=1) {
     if(f(this[i])) {
       return i;
     }
   }
+  return -1;
 }
-
-
