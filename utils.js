@@ -24,7 +24,7 @@ Array.prototype.filter = function(f) {
   return result;
 };
 
-Array.prototype.fold = function(f, zero) {
+Array.prototype.fold = function(zero, f) {
     var result = zero;
     for(var i = 0; i < this.length; i+=1) {
         result = f(result, this[i]);
@@ -38,4 +38,15 @@ Array.prototype.map = function(f) {
     })
 };
 
+Function.prototype.combine = function(f) {
+    return function() { this(f(arguments)) };
+}
 
+// Returns undefined if element is not found, not the usual -1
+Array.prototype.indexOf = function(f) {
+  for(var i = 0; i < this.length; i+=1) {
+    if(f(this[i])) {
+      return i;
+    }
+  }
+}

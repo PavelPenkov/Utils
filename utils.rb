@@ -1,4 +1,4 @@
-class Array
+module Enumerable
   def group(key_selector = nil, value_selector = nil, &block)
     key_selector ||= block
     value_selector ||= lambda{|x| x}

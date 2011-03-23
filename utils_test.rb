@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'utils'
+require './utils'
 
 class TestUtils < Test::Unit::TestCase
   def test_grouping_arrays
