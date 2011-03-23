@@ -33,14 +33,12 @@ Array.prototype.fold = function(zero, f) {
 };
 
 Array.prototype.map = function(f) {
-    return fold([], function(acc, current) {
-        acc.push(f(current));
-    })
+  var result = [];
+  for(var i = 0; i < this.length; i+= 1) {
+    result.push(f(this[i]));
+  }
+  return result;
 };
-
-Function.prototype.combine = function(f) {
-    return function() { this(f(arguments)) };
-}
 
 // Returns undefined if element is not found, not the usual -1
 Array.prototype.indexOf = function(f) {
@@ -50,3 +48,5 @@ Array.prototype.indexOf = function(f) {
     }
   }
 }
+
+
