@@ -1,2 +1,9 @@
 *.swp
 .idea/*
+bin/
+TestResults/
+obj/
+_ReSharper*/
+*~
+*.suo
+*ReSharper.user
